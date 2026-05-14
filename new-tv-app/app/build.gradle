@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace = 'com.fongmi.android.tv'
+    compileSdk { version = release(34) }
+
+    defaultConfig {
+        applicationId "com.fongmi.android.tv"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    flavorDimensions = ["mode"]
+
+    productFlavors {
+        mobile {
+            dimension "mode"
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled = true
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+    implementation project(':catvod')
+    implementation project(':chaquo')
+    implementation project(':quickjs')
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.core:core-splashscreen:1.2.0'
+    implementation 'androidx.lifecycle:lifecycle-service:2.10.0'
+    implementation 'androidx.media:media:1.7.1'
+    implementation 'androidx.media3:media3-common:' + media3Version
+    implementation 'androidx.media3:media3-exoplayer:' + media3Version
+    implementation 'androidx.media3:media3-ui:' + media3Version
+    implementation 'androidx.recyclerview:recyclerview:1.4.0'
+    implementation 'androidx.room:room-runtime:2.8.4'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.2.0'
+    implementation 'com.github.bumptech.glide:glide:' + glideVersion
+    implementation 'com.google.android.material:material:1.14.0-beta01'
+    implementation 'org.greenrobot:eventbus:3.3.1'
+    implementation 'cat.ereza:customactivityoncrash:2.4.0'
+    mobileImplementation 'androidx.biometric:biometric:1.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.8.4'
+    annotationProcessor 'com.github.bumptech.glide:compiler:' + glideVersion
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs_nio:2.1.5'
+}

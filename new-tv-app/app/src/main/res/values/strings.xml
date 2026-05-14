@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TV Mobile</string>
+    <string name="nav_vod">视频</string>
+    <string name="nav_live">直播</string>
+    <string name="nav_search">搜索</string>
+    <string name="nav_setting">设置</string>
+    <string name="title_home">首页</string>
+    <string name="title_search">搜索</string>
+    <string name="title_setting">设置</string>
+    <string name="title_video">播放</string>
+    <string name="hint_search">请输入搜索内容</string>
+    <string name="empty_vod">暂无视频</string>
+    <string name="empty_live">暂无直播</string>
+    <string name="empty_search">未找到相关内容</string>
+    <string name="loading">加载中...</string>
+    <string name="play">播放</string>
+    <string name="pause">暂停</string>
+    <string name="stop">停止</string>
+</resources>
